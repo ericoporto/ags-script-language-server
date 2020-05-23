@@ -2,7 +2,7 @@
 
 import * as LSP from 'vscode-languageserver'
 
-import BashServer from './server'
+import AgsScriptServer from './server'
 
 const pkg = require('../package')
 
@@ -18,7 +18,7 @@ export function listen() {
     async (params: LSP.InitializeParams): Promise<LSP.InitializeResult> => {
       connection.console.log(`Initialized server v. ${pkg.version} for ${params.rootUri}`)
 
-      const server = await BashServer.initialize(connection, params)
+      const server = await AgsScriptServer.initialize(connection, params)
 
       server.register(connection)
 

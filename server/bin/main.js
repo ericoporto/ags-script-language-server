@@ -17,9 +17,9 @@ if (start) {
 } else if (help) {
   console.log(`
 Usage:
-  bash-language-server start
-  bash-language-server -h | --help
-  bash-language-server -v | --version
+  ags-script-language-server start
+  ags-script-language-server -h | --help
+  ags-script-language-server -v | --version
   `)
 } else {
   const command = args.join(' ')

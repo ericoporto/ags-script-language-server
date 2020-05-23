@@ -10,13 +10,13 @@ import {
 
 export async function activate(context: ExtensionContext) {
   const explainshellEndpoint = workspace
-    .getConfiguration('bashIde')
+    .getConfiguration('AgsScriptIde')
     .get('explainshellEndpoint', '')
 
-  const globPattern = workspace.getConfiguration('bashIde').get('globPattern', '')
+  const globPattern = workspace.getConfiguration('AgsScriptIde').get('globPattern', '')
 
   const highlightParsingErrors = workspace
-    .getConfiguration('bashIde')
+    .getConfiguration('AgsScriptIde')
     .get('highlightParsingErrors', false)
 
   const env: any = {
@@ -55,13 +55,13 @@ export async function activate(context: ExtensionContext) {
       },
     ],
     synchronize: {
-      configurationSection: 'Bash IDE',
+      configurationSection: 'AGS Script IDE',
       // Notify the server about file changes to '.clientrc files contain in the workspace
       fileEvents: workspace.createFileSystemWatcher('**/.clientrc'),
     },
   }
 
-  const client = new LanguageClient('Bash IDE', 'Bash IDE', serverOptions, clientOptions)
+  const client = new LanguageClient('AGS Script IDE', 'AGS Script IDE', serverOptions, clientOptions)
 
   // Push the disposable to the context's subscriptions so that the
   // client can be deactivated on extension deactivation

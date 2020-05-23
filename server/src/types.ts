@@ -7,7 +7,7 @@ export enum CompletionItemDataType {
   Symbol,
 }
 
-export interface BashCompletionItem extends LSP.CompletionItem {
+export interface AgsScriptCompletionItem extends LSP.CompletionItem {
   data: {
     type: CompletionItemDataType
     name: string

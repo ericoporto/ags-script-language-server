@@ -9,7 +9,6 @@ import * as Parser from 'web-tree-sitter'
 import { getGlobPattern } from './config'
 import { flattenArray, flattenObjectValues } from './util/flatten'
 import { getFilePaths } from './util/fs'
-import { getShebang, isBashShebang } from './util/shebang'
 import * as TreeSitterUtil from './util/tree-sitter'
 
 const readFileAsync = promisify(fs.readFile)
@@ -60,7 +59,7 @@ export default class Analyzer {
         filePaths = await getFilePaths({ globPattern, rootPath })
       } catch (error) {
         connection.window.showWarningMessage(
-          `Failed to analyze bash files using the glob "${globPattern}". The experience will be degraded. Error: ${error.message}`,
+          `Failed to analyze ags script files using the glob "${globPattern}". The experience will be degraded. Error: ${error.message}`,
         )
       }
 
@@ -76,11 +75,6 @@ export default class Analyzer {
 
         try {
           const fileContent = await readFileAsync(filePath, 'utf8')
-          const shebang = getShebang(fileContent)
-          if (shebang && !isBashShebang(shebang)) {
-            connection.console.log(`Skipping file ${uri} with shebang "${shebang}"`)
-            continue
-          }
 
           analyzer.analyze(uri, LSP.TextDocument.create(uri, 'shell', 1, fileContent))
         } catch (error) {
@@ -439,7 +433,7 @@ export default class Analyzer {
   }
 
   private getAllSymbols(): LSP.SymbolInformation[] {
-    // NOTE: this could be cached, it takes < 1 ms to generate for a project with 250 bash files...
+    // NOTE: this could be cached, it takes < 1 ms to generate for a project with 250 ags script files...
     const symbols: LSP.SymbolInformation[] = []
 
     Object.keys(this.uriToDeclarations).forEach(uri => {

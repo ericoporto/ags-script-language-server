@@ -3,7 +3,7 @@ import * as ChildProcess from 'child_process'
 /**
  * Execute the following sh program.
  */
-export function execShellScript(body: string, cmd = 'bash'): Promise<string> {
+export function execShellScript(body: string, cmd = 'ags'): Promise<string> {
   const args = ['-c', body]
   const process = ChildProcess.spawn(cmd, args)
 

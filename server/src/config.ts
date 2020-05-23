@@ -1,4 +1,4 @@
-export const DEFAULT_GLOB_PATTERN = '**/*@(.sh|.inc|.bash|.command)'
+export const DEFAULT_GLOB_PATTERN = '**/*@(.ash|.asc)'
 
 export function getExplainshellEndpoint(): string | null {
   const { EXPLAINSHELL_ENDPOINT } = process.env

@@ -1,4 +1,4 @@
-import BashLanguageServer from 'bash-language-server'
+import AgsScriptLanguageServer from 'ags-script-language-server'
 import {
   createConnection,
   IConnection,
@@ -11,12 +11,12 @@ const connection: IConnection = createConnection(ProposedFeatures.all)
 
 connection.onInitialize(
   async (params: InitializeParams): Promise<InitializeResult> => {
-    connection.console.info('BashLanguageServer initializing...')
+    connection.console.info('AgsScriptLanguageServer initializing...')
 
-    const server = await BashLanguageServer.initialize(connection, params)
+    const server = await AgsScriptLanguageServer.initialize(connection, params)
     server.register(connection)
 
-    connection.console.info('BashLanguageServer initialized')
+    connection.console.info('AgsScriptLanguageServer initialized')
 
     return {
       capabilities: server.capabilities(),
