@@ -1,3 +1,9 @@
+# AGS Script Language Server
+
+***WARNING: WORK IN PROGRESS***
+
+Based on the Bash Language Server from Mads Hartmann.
+
 # Bash Language Server
 
 Bash language server implementation based on [Tree Sitter][tree-sitter] and its [grammar for Bash][tree-sitter-bash]
