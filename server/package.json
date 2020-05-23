@@ -1,10 +1,10 @@
 {
-  "name": "bash-language-server",
-  "description": "A language server for Bash",
-  "author": "Mads Hartmann",
+  "name": "ags-script-language-server",
+  "description": "A language server for AGS Script",
+  "author": "Érico Vieira Porto",
   "license": "MIT",
-  "version": "1.16.1",
-  "publisher": "mads-hartmann",
+  "version": "0.1.0",
+  "publisher": "ericoporto",
   "main": "./out/server.js",
   "typings": "./out/server.d.ts",
   "bin": {

@@ -6,9 +6,7 @@ Based on the Bash Language Server from Mads Hartmann.
 
 # Bash Language Server
 
-Bash language server implementation based on [Tree Sitter][tree-sitter] and its [grammar for Bash][tree-sitter-bash]
-with [explainshell][explainshell] integration.
-
+Bash language server implementation based on [Tree Sitter][tree-sitter] and its [grammar for Bash][tree-sitter-ags-script].
 ## Features
 
 - [x] Jump to declaration
@@ -24,7 +22,7 @@ with [explainshell][explainshell] integration.
 ## Installation
 
 ```bash
-npm i -g bash-language-server
+npm i -g ags-script-language-server
 ```
 
 If you encounter installation errors, ensure you have node version 8 or newer (`node --version`).
@@ -50,8 +48,8 @@ For Vim 8 or later install the plugin [prabirshrestha/vim-lsp][vim-lsp] and add 
 ```vim
 if executable('bash-language-server')
   au User lsp_setup call lsp#register_server({
-        \ 'name': 'bash-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+        \ 'name': 'ags-script-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ags-script-language-server start']},
         \ 'whitelist': ['sh'],
         \ })
 endif
@@ -62,7 +60,7 @@ For Vim 8 or Neovim using [neoclide/coc.nvim][coc.nvim], according to [it's Wiki
 ```jsonc
   "languageserver": {
     "bash": {
-      "command": "bash-language-server",
+      "command": "ags-script-language-server",
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
@@ -86,7 +84,7 @@ Install the plugin [autozimu/LanguageClient-neovim][languageclient-neovim] and a
 
 ```vim
 let g:LanguageClient_serverCommands = {
-    \ 'sh': ['bash-language-server', 'start']
+    \ 'sh': ['ags-script-language-server', 'start']
     \ }
 ```
 
@@ -95,8 +93,8 @@ let g:LanguageClient_serverCommands = {
 On the config file (`File -> Preferences -> Edit Oni config`) add the following configuration:
 
 ```javascript
-"language.bash.languageServer.command": "bash-language-server",
-"language.bash.languageServer.arguments": ["start"],
+"language.agsscript.languageServer.command": "ags-script-language-server",
+"language.agsscript.languageServer.arguments": ["start"],
 ```
 
 #### Emacs
@@ -116,11 +114,10 @@ Add the configuration to your `.emacs.d/init.el`
 Please see [docs/development-guide][dev-guide] for more information.
 
 [tree-sitter]: https://github.com/tree-sitter/tree-sitter
-[tree-sitter-bash]: https://github.com/tree-sitter/tree-sitter-bash
+[tree-sitter-ags-script]: https://github.com/edmundito/tree-sitter-ags-script
 [vscode-marketplace]: https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode
 [dev-guide]: https://github.com/bash-lsp/bash-language-server/blob/master/docs/development-guide.md
 [ide-bash]: https://atom.io/packages/ide-bash
-[explainshell]: https://explainshell.com/
 [languageclient-neovim]: https://github.com/autozimu/LanguageClient-neovim
 [vim-lsp]: https://github.com/prabirshrestha/vim-lsp
 [vim-ale]: https://github.com/w0rp/ale
