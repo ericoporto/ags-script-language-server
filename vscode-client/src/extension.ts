@@ -9,10 +9,6 @@ import {
 } from 'vscode-languageclient'
 
 export async function activate(context: ExtensionContext) {
-  const explainshellEndpoint = workspace
-    .getConfiguration('AgsScriptIde')
-    .get('explainshellEndpoint', '')
-
   const globPattern = workspace.getConfiguration('AgsScriptIde').get('globPattern', '')
 
   const highlightParsingErrors = workspace
@@ -21,7 +17,6 @@ export async function activate(context: ExtensionContext) {
 
   const env: any = {
     ...process.env,
-    EXPLAINSHELL_ENDPOINT: explainshellEndpoint,
     GLOB_PATTERN: globPattern,
     HIGHLIGHT_PARSING_ERRORS: highlightParsingErrors,
   }

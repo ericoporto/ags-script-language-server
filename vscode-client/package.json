@@ -23,7 +23,7 @@
     "ags-script"
   ],
   "activationEvents": [
-    "onLanguage:shellscript"
+    "onLanguage:agsscript"
   ],
   "main": "./out/extension",
   "contributes": {
@@ -40,11 +40,6 @@
           "type": "boolean",
           "default": true,
           "description": "Controls if parsing errors will be highlighted as problems."
-        },
-        "AgsScriptIde.explainshellEndpoint": {
-          "type": "string",
-          "default": "",
-          "description": "Configure explainshell server in order to get hover documentation on flags and options."
         }
       }
     }

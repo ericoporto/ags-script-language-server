@@ -153,7 +153,7 @@ export default class Analyzer {
     // is to simply go up one level in the AST. If you go up too far, you'll
     // start to include newlines, and explainshell completely balks when it
     // encounters newlines.
-    const interestingNode = leafNode.type === 'word' ? leafNode.parent : leafNode
+/*    const interestingNode = leafNode.type === 'word' ? leafNode.parent : leafNode
 
     if (!interestingNode) {
       return {
@@ -166,7 +166,7 @@ export default class Analyzer {
       interestingNode.startIndex,
       interestingNode.endIndex,
     )
-
+*/
 /*
     // FIXME: type the response and unit test it
     const explainshellResponse = await request({
