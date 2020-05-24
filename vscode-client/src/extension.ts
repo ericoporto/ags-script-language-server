@@ -46,7 +46,7 @@ export async function activate(context: ExtensionContext) {
     documentSelector: [
       {
         scheme: 'file',
-        language: 'shellscript',
+        language: 'agsscript',
       },
     ],
     synchronize: {
@@ -56,7 +56,12 @@ export async function activate(context: ExtensionContext) {
     },
   }
 
-  const client = new LanguageClient('AGS Script IDE', 'AGS Script IDE', serverOptions, clientOptions)
+  const client = new LanguageClient(
+    'AGS Script IDE',
+    'AGS Script IDE',
+    serverOptions,
+    clientOptions,
+  )
 
   // Push the disposable to the context's subscriptions so that the
   // client can be deactivated on extension deactivation

@@ -1,7 +1,5 @@
 import * as fs from 'fs'
 import * as FuzzySearch from 'fuzzy-search'
-import * as request from 'request-promise-native'
-import * as URI from 'urijs'
 import { promisify } from 'util'
 import * as LSP from 'vscode-languageserver'
 import * as Parser from 'web-tree-sitter'
@@ -76,7 +74,7 @@ export default class Analyzer {
         try {
           const fileContent = await readFileAsync(filePath, 'utf8')
 
-          analyzer.analyze(uri, LSP.TextDocument.create(uri, 'shell', 1, fileContent))
+          analyzer.analyze(uri, LSP.TextDocument.create(uri, 'agsscript', 1, fileContent))
         } catch (error) {
           connection.console.warn(`Failed analyzing ${uri}. Error: ${error.message}`)
         }
@@ -133,7 +131,7 @@ export default class Analyzer {
     })
     return searcher.search(query)
   }
-/*
+  /*
   public async getExplainshellDocumentation({
     params,
     endpoint,
@@ -148,12 +146,12 @@ export default class Analyzer {
       column: params.position.character,
     })*/
 
-    // explainshell needs the whole command, not just the "word" (tree-sitter
-    // parlance) that the user hovered over. A relatively successful heuristic
-    // is to simply go up one level in the AST. If you go up too far, you'll
-    // start to include newlines, and explainshell completely balks when it
-    // encounters newlines.
-/*    const interestingNode = leafNode.type === 'word' ? leafNode.parent : leafNode
+  // explainshell needs the whole command, not just the "word" (tree-sitter
+  // parlance) that the user hovered over. A relatively successful heuristic
+  // is to simply go up one level in the AST. If you go up too far, you'll
+  // start to include newlines, and explainshell completely balks when it
+  // encounters newlines.
+  /*    const interestingNode = leafNode.type === 'word' ? leafNode.parent : leafNode
 
     if (!interestingNode) {
       return {
@@ -167,7 +165,7 @@ export default class Analyzer {
       interestingNode.endIndex,
     )
 */
-/*
+  /*
     // FIXME: type the response and unit test it
     const explainshellResponse = await request({
       uri: URI(endpoint)
@@ -176,7 +174,7 @@ export default class Analyzer {
         .toString(),
       json: true,
     })*/
-/*
+  /*
     // Attaches debugging information to the return value (useful for logging to
     // VS Code output).
     const response = { ...explainshellResponse, cmd, cmdType: interestingNode.type }

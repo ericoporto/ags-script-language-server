@@ -1,5 +1,4 @@
 import * as path from 'path'
-import * as TurndownService from 'turndown'
 import * as LSP from 'vscode-languageserver'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
@@ -198,7 +197,7 @@ export default class AgsScriptServer {
       return null
     }
 
-/*
+    /*
     const explainshellEndpoint = config.getExplainshellEndpoint()
     if (explainshellEndpoint) {
       this.connection.console.log(`Query ${explainshellEndpoint}`)
@@ -226,7 +225,6 @@ export default class AgsScriptServer {
         )
       }
     }*/
-
 
     if (
       ReservedWords.isReservedWord(word) ||
@@ -303,7 +301,9 @@ export default class AgsScriptServer {
     return this.analyzer.findReferences(word)
   }
 
-  private onCompletion(params: LSP.TextDocumentPositionParams): AgsScriptCompletionItem[] {
+  private onCompletion(
+    params: LSP.TextDocumentPositionParams,
+  ): AgsScriptCompletionItem[] {
     const word = this.getWordAtPoint({
       ...params,
       position: {
