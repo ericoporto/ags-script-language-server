@@ -133,7 +133,7 @@ export default class Analyzer {
     })
     return searcher.search(query)
   }
-
+/*
   public async getExplainshellDocumentation({
     params,
     endpoint,
@@ -146,7 +146,7 @@ export default class Analyzer {
     ].rootNode.descendantForPosition({
       row: params.position.line,
       column: params.position.character,
-    })
+    })*/
 
     // explainshell needs the whole command, not just the "word" (tree-sitter
     // parlance) that the user hovered over. A relatively successful heuristic
@@ -167,6 +167,7 @@ export default class Analyzer {
       interestingNode.endIndex,
     )
 
+/*
     // FIXME: type the response and unit test it
     const explainshellResponse = await request({
       uri: URI(endpoint)
@@ -174,8 +175,8 @@ export default class Analyzer {
         .addQuery('cmd', cmd)
         .toString(),
       json: true,
-    })
-
+    })*/
+/*
     // Attaches debugging information to the return value (useful for logging to
     // VS Code output).
     const response = { ...explainshellResponse, cmd, cmdType: interestingNode.type }
@@ -203,7 +204,7 @@ export default class Analyzer {
 
       return { ...response, helpHTML }
     }
-  }
+  }*/
 
   /**
    * Find all the locations where something named name has been defined.

@@ -1,11 +1,13 @@
 export const DEFAULT_GLOB_PATTERN = '**/*@(.ash|.asc)'
 
+/*
 export function getExplainshellEndpoint(): string | null {
   const { EXPLAINSHELL_ENDPOINT } = process.env
   return typeof EXPLAINSHELL_ENDPOINT === 'string' && EXPLAINSHELL_ENDPOINT.trim() !== ''
     ? EXPLAINSHELL_ENDPOINT
     : null
 }
+*/
 
 export function getGlobPattern(): string {
   const { GLOB_PATTERN } = process.env

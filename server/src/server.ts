@@ -198,6 +198,7 @@ export default class AgsScriptServer {
       return null
     }
 
+/*
     const explainshellEndpoint = config.getExplainshellEndpoint()
     if (explainshellEndpoint) {
       this.connection.console.log(`Query ${explainshellEndpoint}`)
@@ -224,7 +225,8 @@ export default class AgsScriptServer {
           `getExplainshellDocumentation exception: ${error.message}`,
         )
       }
-    }
+    }*/
+
 
     if (
       ReservedWords.isReservedWord(word) ||
